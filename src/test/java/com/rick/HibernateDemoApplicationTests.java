@@ -9,10 +9,13 @@ import com.rick.quickstart.dao.StudentRepository;
 import com.rick.quickstart.entity.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -26,6 +29,25 @@ public class HibernateDemoApplicationTests {
 
 	@Resource
 	private TaskRepository taskRepository;
+
+	@Autowired
+	private StudentRepository studentRepository;
+
+	@Test
+	public void testStudentAdd() {
+		Student student = new Student();
+		student.setName("hello world");
+		studentRepository.save(student);
+	}
+
+	@Test
+	public void testStudentUpdate() {
+		List<Student> student = studentRepository.findAllById(Arrays.asList(1L));
+		student.get(0).setName("csdn");
+
+		studentRepository.saveAll(student);
+	}
+
 
 	@Test
 	public void compositeKey() {

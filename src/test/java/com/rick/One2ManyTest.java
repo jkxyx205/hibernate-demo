@@ -35,9 +35,7 @@ public class One2ManyTest {
         order.setName("order-1");
         order.setPrice(1.2f);
 
-        List<Orders> orderList = new ArrayList<>();
-        orderList.add(order);
-        customer.setOrderList(orderList);
+        customer.getOrderList().add(order);
 
         customerRepository.save(customer);
     }

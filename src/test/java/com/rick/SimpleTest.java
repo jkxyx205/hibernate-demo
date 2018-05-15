@@ -35,8 +35,6 @@ public class SimpleTest {
         Book book = new Book();
         book.setName("Java");
         book.setIsbn("998223");
-//        book.setAuthor();
-
 
         Author author = new Author();
         author.setName("King");
@@ -86,10 +84,10 @@ public class SimpleTest {
         Author author = authorRepository.findById(1L).get();
 
         System.out.println(author.getBookSet().size());
-        System.out.println(author.getName());
-        System.out.println(author.getBookSet().iterator().next().getName());
-
-        author.setName("Lucy"); //不会被更新
+//        System.out.println(author.getName());
+//        System.out.println(author.getBookSet().iterator().next().getName());
+//
+//        author.setName("Lucy"); //不会被更新
 
     }
 
